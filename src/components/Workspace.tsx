@@ -8,7 +8,7 @@ import ResultsPanel from "./ResultsPanel";
 import { toast } from "sonner";
 
 // API endpoint - adjust if backend is on different port
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://llm-compiler.onrender.com";
 
 // Empty starter code templates
 const emptyCode = {
@@ -676,7 +676,7 @@ const Workspace = () => {
       }).catch((fetchError) => {
         // Network error - backend not running or CORS issue
         if (fetchError instanceof TypeError && fetchError.message.includes('fetch')) {
-          throw new Error(`Cannot connect to backend server at ${API_BASE_URL}. Please make sure the backend is running on port 8000.`);
+          throw new Error(`Cannot connect to backend server at ${API_BASE_URL}. Please make sure the backend is live.`);
         }
         throw fetchError;
       });
@@ -717,7 +717,7 @@ const Workspace = () => {
       
       toast.error(errorMessage, {
         duration: 5000,
-        description: "Make sure the backend server is running: cd backend && python main.py"
+        description: "Check if the backend server is live at https://llm-compiler.onrender.com"
       });
       setResults(null);
     } finally {
