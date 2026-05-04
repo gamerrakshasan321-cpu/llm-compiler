@@ -14,7 +14,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/llm-compiler">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/workspace" element={<WorkspacePage />} />
